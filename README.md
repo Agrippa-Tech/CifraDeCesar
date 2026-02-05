@@ -124,7 +124,7 @@ O código utiliza manipulação ASCII para operações criptográficas:
 ## Como Executar
 
 ```bash
-python cifra_cesar.py
+python CifraCesar.py
 ```
 
 ## Limitações Educacionais Reconhecidas
