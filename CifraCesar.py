@@ -125,7 +125,7 @@ while True:
                     tentativa_user = input("\nDigite a mensagem decifrada: ")
                     if tentativa_user == frase_aleatoria_X1:
                         tempo_tentativa_final = time.time()
-                        tempo_total = tempo_tentativa_user - tempo_tentativa_final
+                        tempo_total = tempo_tentativa_final - tempo_tentativa_user
                         print(f"\nParabéns! Você decifrou em {tempo_total:2.2f} segundos!")
                         input('\nPressione Enter para continuar...')
                         os.system('cls' if os.name == 'nt' else 'clear')
