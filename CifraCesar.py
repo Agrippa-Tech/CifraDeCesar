@@ -9,16 +9,41 @@ import os
 
 componentes_frases_cifradas = {
     'sujeito': [
-        'O gato', 'O cachorro', 'Maria', 'João', 'A professora',
-        'O aluno', 'A criança', 'O médico', 'A enfermeira', 'O motorista'
+        'Maria', 'João', 'Pedro', 'Ana', 'Carlos', 'Juliana',
+        'Roberto', 'Fernanda', 'Lucas', 'Beatriz', 'Rafael', 'Camila',
+        'A professora', 'O aluno', 'A médica', 'O enfermeiro', 'O motorista',
+        'A engenheira', 'O artista', 'A cientista', 'A vendedora', 'O cozinheiro',
+        'A bailarina', 'O pianista', 'A jornalista', 'Meu irmão', 'Minha avó',
+        'O presidente', 'A diretora', 'O bombeiro', 'A advogada', 'O arquiteto',
+        'A dentista', 'O policial', 'A psicóloga', 'O professor', 'A estudante',
+        'O gerente', 'A secretária', 'O mecânico', 'A fotógrafa', 'O desenvolvedor',
+        'A designer', 'O veterinário', 'A farmacêutica', 'O contador', 'A chef',
+        'O atleta', 'A escritora', 'O músico', 'Minha mãe', 'Meu pai'
     ],
     'verbo': [
         'correu', 'pulou', 'estudou', 'trabalhou', 'comeu', 'dormiu',
-        'cantou', 'dançou', 'escreveu', 'leu',
+        'cantou', 'dançou', 'escreveu', 'leu', 'pintou', 'desenhou',
+        'viajou', 'nadou', 'dirigiu', 'cozinhou', 'limpou', 'conversou',
+        'brincou', 'jogou', 'pensou', 'sorriu', 'chorou', 'gritou',
+        'sussurrou', 'corrigiu', 'aprendeu', 'ensinou', 'descobriu', 'construiu',
+        'plantou', 'colheu', 'pesquisou', 'inventou', 'criou', 'observou',
+        'fotografou', 'filmou', 'apresentou', 'competiu', 'venceu', 'perdeu',
+        'treinou', 'praticou', 'meditou', 'relaxou', 'descansou', 'organizou',
+        'planejou', 'decidiu', 'comprou', 'vendeu', 'entregou', 'recebeu'
     ],
     'complemento': [
         'no parque', 'em casa', 'na escola', 'rapidamente', 'muito bem',
-        'com alegria', 'ontem', 'hoje cedo', 'à noite', 'pela manhã'
+        'com alegria', 'ontem', 'hoje cedo', 'à noite', 'pela manhã',
+        'no jardim', 'na praia', 'na montanha', 'no shopping', 'no hospital',
+        'na biblioteca', 'no museu', 'no teatro', 'no cinema', 'no restaurante',
+        'com entusiasmo', 'com calma', 'com pressa', 'com cuidado', 'com carinho',
+        'durante a tarde', 'ao amanhecer', 'ao entardecer', 'na madrugada', 'todo dia',
+        'frequentemente', 'raramente', 'sempre', 'nunca', 'às vezes',
+        'silenciosamente', 'barulhentamente', 'cuidadosamente', 'apressadamente', 'elegantemente',
+        'no laboratório', 'na cozinha', 'no escritório', 'na fazenda', 'na cidade',
+        'com os amigos', 'sozinho', 'em grupo', 'com a família', 'com dedicação',
+        'sob a chuva', 'sob o sol', 'debaixo da árvore', 'perto do rio', 'longe daqui',
+        'no estádio', 'na academia', 'no consultório', 'na universidade', 'no aeroporto'
     ]
 }
 
@@ -94,17 +119,32 @@ while True:
                     else:
                         frase_aleatoria_Y += letra
                 print(frase_aleatoria_Y)
-                tentativa_user = input("\nDigite a mensagem decifrada: ")
-                if tentativa_user == frase_aleatoria_X1:
-                    print("\nParabéns!")
-                    input('\nPressione Enter para continuar...')
-                    os.system('cls' if os.name == 'nt' else 'clear')
+                tentativa_opcao_3 = 5
+                tempo_tentativa_user = time.time()
+                while tentativa_opcao_3 > 0:
+                    tentativa_user = input("\nDigite a mensagem decifrada: ")
+                    if tentativa_user == frase_aleatoria_X1:
+                        tempo_tentativa_final = time.time()
+                        tempo_total = tempo_tentativa_user - tempo_tentativa_final
+                        print(f"\nParabéns! Você decifrou em {tempo_total:2.2f} segundos!")
+                        input('\nPressione Enter para continuar...')
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        break
+                    
+                    else:
+                        tentativa_opcao_3 -= 1
+                        if tentativa_opcao_3 > 0:
+                            print("\nTente novamente.")
+                            print(f"Você tem {tentativa_opcao_3} tentativas.")
+                            time.sleep(5)
+                            os.system('cls' if os.name == 'nt' else 'clear')
 
-                else: 
-                    print("\nVocê falhou.")
-                    input('\nPressione Enter para continuar...')
-                    os.system('cls' if os.name == 'nt' else 'clear')
-
+                        else: 
+                            tentativa_opcao_3 < 1
+                            print("\nVocê falhou.")
+                            input('Pressione Enter para continuar...')
+                            os.system('cls' if os.name == 'nt' else 'clear')
+                            break
             
             elif opcao_menu == 4:  
                 os.system('cls' if os.name == 'nt' else 'clear')
