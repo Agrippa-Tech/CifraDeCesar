@@ -118,10 +118,10 @@ while True:
                         frase_aleatoria_Y += conversao_ascii_alpha
                     else:
                         frase_aleatoria_Y += letra
-                print(frase_aleatoria_Y)
                 tentativa_opcao_3 = 5
                 tempo_tentativa_user = time.time()
                 while tentativa_opcao_3 > 0:
+                    print(frase_aleatoria_Y)
                     tentativa_user = input("\nDigite a mensagem decifrada: ")
                     if tentativa_user == frase_aleatoria_X1:
                         tempo_tentativa_final = time.time()
@@ -136,11 +136,26 @@ while True:
                         if tentativa_opcao_3 > 0:
                             print("\nTente novamente.")
                             print(f"Você tem {tentativa_opcao_3} tentativas.")
-                            time.sleep(5)
-                            os.system('cls' if os.name == 'nt' else 'clear')
+                            print()
+                            print("\nPressione [1] para continuar")
+                            print("Pressione [2] para decriptar a mensagem")
+                            print("Pressione [3] para sair")
+                            sair_opcao_3 = input()
+                            if sair_opcao_3 == "1":
+                                time.sleep(2)
+                                os.system('cls' if os.name == 'nt' else 'clear')
+                            elif sair_opcao_3 == "2":
+                                print(f"\nA mensagem decifrada é: {frase_aleatoria_X1}")
+                                input("\nPressione Enter para voltar ao menu principal...")                                
+                                time.sleep(2)
+                                os.system('cls' if os.name == 'nt' else 'clear')
+                                break
+                            elif sair_opcao_3 == "3":
+                                os.system('cls' if os.name == 'nt' else 'clear')
+                                time.sleep(2)
+                                break
 
                         else: 
-                            tentativa_opcao_3 < 1
                             print("\nVocê falhou.")
                             input('Pressione Enter para continuar...')
                             os.system('cls' if os.name == 'nt' else 'clear')
@@ -169,7 +184,20 @@ while True:
             
             elif opcao_menu == 5:
                 os.system('cls' if os.name == 'nt' else 'clear')
+                saida = f"""
+                      db            .g8!!!bgd      `7MM!!!Mq.      `7MMF'    `7MM!!!Mq.     `7MM!!!Mq.           db
+                     ;MM:         .dP'     `M        MM   `MM.       MM        MM   `MM.      MM   `MM.         ;MM:
+                    ,V^MM.        dM'       `        MM   ,M9        MM        MM   ,M9       MM   ,M9         ,V^MM.
+                   ,M  `MM        MM                 MMmmdM9         MM        MMmmdM9        MMmmdM9         ,M  `MM
+                   AbmmmqMA       MM.    `7MMF'      MM  YM.         MM        MM             MM              AbmmmqMA
+                  A'     VML      `Mb.     MM        MM   `Mb.       MM        MM             MM             A'     VML
+                .AMA.   .AMMA.      `"bmmmdPY      .JMML. .JMM.    .JMML.    .JMML.         .JMML.         .AMA.   .AMMA.
+                
+                    """
+                    
                 print("\nAté logo!")
+                time.sleep(1)
+                print(saida)
                 exit()
             
             else:
